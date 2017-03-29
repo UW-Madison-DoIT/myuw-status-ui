@@ -3,7 +3,7 @@
     <div class="status-app">
       <h3>{{ app.name }}</h3>
     </div>
-    <div class="status-image status-ok" v-if="app.status === 'up'">
+    <div class="status-image status-ok" v-if="status === 'up'">
       <img src="../assets/img/check.png">
     </div>
     <div class="status-image status-error" v-else>
@@ -17,7 +17,25 @@ export default {
   name: 'status-card',
   props: ['app'],
   data () {
-    return {}
+    return {
+      'status': 0
+    }
+  },
+  created: function() {
+    // Get app status on load
+    this.getStatus();
+  },
+  methods: {
+    // Gets status from /status endpoints
+    getStatus: function() {
+      this.$http.get(this.app.checkUrl).then(response => {
+        // Set app
+        this.status = response.body.status;
+      }, response => {
+        // Error
+        console.error('Something went wrong');
+      })
+    }
   }
 }
 </script>
