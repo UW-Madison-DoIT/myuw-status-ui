@@ -1,0 +1,29 @@
+{
+  "apps": [
+    {
+      "name": "STAR",
+      "url": "http://google.com/",
+      "checkUrl": "/demo/star/status.json"
+    },
+    {
+      "name": "Academic Navigator",
+      "url": "http://google.com/",
+      "checkUrl": "/demo/academic-navigator/status.json"
+    },
+    {
+      "name": "Advising Gateway",
+      "url": "http://google.com/",
+      "checkUrl": "/demo/advising-gateway/status.json"
+    },
+    {
+      "name": "Tools",
+      "url": "http://tools.my.wisc.edu/",
+      "checkUrl": "/demo/tools/status.json"
+    },
+    {
+      "name": "Outages",
+      "url": "http://outages.doit.wisc.edu/",
+      "checkUrl": "/demo/outages/status.json"
+    }
+  ]
+}

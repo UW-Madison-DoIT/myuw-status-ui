@@ -7,9 +7,7 @@
 </template>
 
 <script>
-// Import Vue to allow use of vue-resource for http.get
-// and import status-card for passing data to child compnent
-import Vue from 'vue'
+// Import status-card for passing data to child compnent
 import StatusCard from './status-card.vue'
 
 // PASS DATA TO CHILD COMPONENT (status-card)
@@ -22,17 +20,14 @@ export default {
     }
   },
   created: function() {
-    // var vm = this;
-    // Get app statuses on load
-    this.getStatuses();
+    // Get apps to check on load
+    this.getChecks();
   },
   methods: {
-    // Gets app statuses from /status endpoints
-    //   TODO: Should move to status-card and call once for each card, based on a
-    //   JSON file of apps and their /status urls
-    getStatuses: function() {
+    // Gets app check configs from /status endpoints
+    getChecks: function() {
       // var vm = this;
-      this.$http.get('/demo-statuses.json').then(response => {
+      this.$http.get('/demo/check-config.json').then(response => {
         // Set app
         this.apps = response.body.apps;
       }, response => {
